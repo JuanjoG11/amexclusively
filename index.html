@@ -1,0 +1,627 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AM Exclusively Store — Pereira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-logo"><img src="logo.jpg" alt="AM" /></div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <span class="loader-text">CARGANDO COLECCIÓN</span>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- NAVBAR -->
+  <nav class="nav" id="nav">
+    <div class="nav-wrap">
+      <a href="#hero" class="nav-logo">
+        <img src="logo.jpg" alt="AM Exclusively Store" />
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#new-in">NUEVA COLECCIÓN</a></li>
+        <li><a href="#catalogo">CATÁLOGO</a></li>
+        <li><a href="#nosotros">NOSOTROS</a></li>
+        <li><a href="#contacto">CONTACTO</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="https://wa.link/yx9v35" target="_blank" class="nav-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          PEDIR
+        </a>
+        <button class="cart-btn" id="cartBtn" aria-label="Carrito">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="scan-lines"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-tag"><span class="tag-dot"></span><span>DROP 2026 · PEREIRA · COLOMBIA</span></div>
+        <h1 class="hero-title">
+          <span class="line-wrap"><span class="hero-line" data-text="AM">AM</span></span>
+          <span class="line-wrap"><span class="hero-line hero-line--outline" data-text="EXCLU">EXCLU</span></span>
+          <span class="line-wrap"><span class="hero-line" data-text="SIVELY">SIVELY</span></span>
+        </h1>
+        <p class="hero-desc">Importadores directos. Ropa &amp; Tenis para Hombre y Mujer. Contra entrega a todo Colombia.</p>
+        <div class="hero-actions">
+          <a href="#catalogo" class="btn-primary">VER CATÁLOGO <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.link/yx9v35" target="_blank" class="btn-ghost-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WHATSAPP</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-logo-giant">
+          <img src="logo.jpg" alt="AM" class="hero-logo-img" />
+          <div class="hero-logo-glow"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll"><div class="scroll-wheel"></div><span>SCROLL</span></div>
+    <div class="hero-float-info">
+      <div class="float-item"><span class="float-num">+1.8K</span><span class="float-label">SEGUIDORES</span></div>
+      <div class="float-sep"></div>
+      <div class="float-item"><span class="float-num">32</span><span class="float-label">DEPTOS.</span></div>
+      <div class="float-sep"></div>
+      <div class="float-item"><span class="float-num">100%</span><span class="float-label">CONTRA ENTREGA</span></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track"><div class="marquee-inner">
+      <span>IMPORTADORES DIRECTOS</span><span class="mx">✦</span>
+      <span>CONTRA ENTREGA A TODO COLOMBIA</span><span class="mx">✦</span>
+      <span>VENTA AL MAYOR Y DETAL</span><span class="mx">✦</span>
+      <span>ROPA &amp; TENIS · HOMBRE &amp; MUJER</span><span class="mx">✦</span>
+      <span>PEREIRA · RISARALDA</span><span class="mx">✦</span>
+      <span>IMPORTADORES DIRECTOS</span><span class="mx">✦</span>
+      <span>CONTRA ENTREGA A TODO COLOMBIA</span><span class="mx">✦</span>
+      <span>VENTA AL MAYOR Y DETAL</span><span class="mx">✦</span>
+      <span>ROPA &amp; TENIS · HOMBRE &amp; MUJER</span><span class="mx">✦</span>
+      <span>PEREIRA · RISARALDA</span><span class="mx">✦</span>
+    </div></div>
+  </div>
+
+  <!-- NEW IN — 4 cards featured -->
+  <section class="new-in" id="new-in">
+    <div class="section-label"><span class="label-line"></span><span>NEW IN</span><span class="label-line"></span></div>
+    <div class="new-in-header">
+      <h2 class="section-title">DROPS<br><em>RECIENTES</em></h2>
+      <p class="section-desc">Piezas seleccionadas para los que saben. Importadas directo, sin intermediarios.</p>
+    </div>
+
+    <div class="products-grid">
+      <!-- CARD 1 -->
+      <article class="p-card" data-id="1" data-category="camisetas">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&fit=crop" alt="Camiseta Urban Drop" loading="lazy" />
+          <div class="p-card-overlay">
+            <button class="p-card-add" data-action="add-to-cart">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>AGREGAR</span>
+            </button>
+          </div>
+          <span class="p-tag p-tag--new">NEW</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top">
+            <span class="p-category">CAMISETA · HOMBRE</span>
+            <div class="p-colors">
+              <button class="p-color active" style="--c:#0a0a0a" aria-label="Negro"></button>
+              <button class="p-color" style="--c:#f5f5f5;border:1px solid #333" aria-label="Blanco"></button>
+              <button class="p-color" style="--c:#1a1a2e" aria-label="Navy"></button>
+            </div>
+          </div>
+          <h3 class="p-name">Urban Drop Vol.1</h3>
+          <div class="p-price">$89.000</div>
+          <div class="p-sizes"><span class="p-size">S</span><span class="p-size">M</span><span class="p-size active">L</span><span class="p-size">XL</span><span class="p-size">XXL</span></div>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="p-card" data-id="2" data-category="chaquetas">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80&fit=crop" alt="Chaqueta Midnight Bomber" loading="lazy" />
+          <div class="p-card-overlay">
+            <button class="p-card-add" data-action="add-to-cart">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>AGREGAR</span>
+            </button>
+          </div>
+          <span class="p-tag p-tag--hot">HOT</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top">
+            <span class="p-category">CHAQUETA · CABALLERO</span>
+            <div class="p-colors">
+              <button class="p-color active" style="--c:#0d0d1f" aria-label="Navy"></button>
+              <button class="p-color" style="--c:#1a0a0a" aria-label="Vino"></button>
+            </div>
+          </div>
+          <h3 class="p-name">Midnight Bomber</h3>
+          <div class="p-price">$195.000</div>
+          <div class="p-sizes"><span class="p-size">S</span><span class="p-size active">M</span><span class="p-size">L</span><span class="p-size">XL</span></div>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="p-card" data-id="3" data-category="pantalones">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80&fit=crop" alt="Pantalón Cargo Elite" loading="lazy" />
+          <div class="p-card-overlay">
+            <button class="p-card-add" data-action="add-to-cart">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>AGREGAR</span>
+            </button>
+          </div>
+          <span class="p-tag">EXCL.</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top">
+            <span class="p-category">PANTALÓN · CABALLERO</span>
+            <div class="p-colors">
+              <button class="p-color active" style="--c:#111" aria-label="Negro"></button>
+              <button class="p-color" style="--c:#2d2416" aria-label="Khaki"></button>
+            </div>
+          </div>
+          <h3 class="p-name">Cargo Elite</h3>
+          <div class="p-price">$129.000</div>
+          <div class="p-sizes"><span class="p-size">28</span><span class="p-size active">30</span><span class="p-size">32</span><span class="p-size">34</span></div>
+        </div>
+      </article>
+
+      <!-- CARD 4 -->
+      <article class="p-card" data-id="4" data-category="tenis">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80&fit=crop" alt="Tenis AM Signature" loading="lazy" />
+          <div class="p-card-overlay">
+            <button class="p-card-add" data-action="add-to-cart">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>AGREGAR</span>
+            </button>
+          </div>
+          <span class="p-tag p-tag--new">NEW</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top">
+            <span class="p-category">TENIS · UNISEX</span>
+            <div class="p-colors">
+              <button class="p-color active" style="--c:#0a0a0a" aria-label="Negro"></button>
+              <button class="p-color" style="--c:#eeeeee;border:1px solid #333" aria-label="Blanco"></button>
+              <button class="p-color" style="--c:#8b1a1a" aria-label="Rojo"></button>
+            </div>
+          </div>
+          <h3 class="p-name">AM Signature</h3>
+          <div class="p-price">$249.000</div>
+          <div class="p-sizes"><span class="p-size">38</span><span class="p-size">40</span><span class="p-size active">42</span><span class="p-size">43</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CATÁLOGO COMPLETO
+       ====================================================== -->
+  <section class="catalog-section" id="catalogo">
+    <div class="catalog-header">
+      <div class="section-label"><span class="label-line"></span><span>CATÁLOGO</span><span class="label-line"></span></div>
+      <h2 class="section-title">TODA LA<br><em>COLECCIÓN</em></h2>
+      <p class="section-desc" style="text-align:center;margin:0 auto 2.5rem;max-width:400px">Explora y agrega directo a tu carrito. Pagás contra entrega en tu puerta.</p>
+
+      <!-- FILTERS -->
+      <div class="cat-filters" id="catFilters">
+        <button class="cat-filter active" data-filter="all">TODO</button>
+        <button class="cat-filter" data-filter="camisetas">CAMISETAS</button>
+        <button class="cat-filter" data-filter="chaquetas">CHAQUETAS</button>
+        <button class="cat-filter" data-filter="pantalones">PANTALONES</button>
+        <button class="cat-filter" data-filter="tenis">TENIS</button>
+        <button class="cat-filter" data-filter="conjuntos">CONJUNTOS</button>
+        <button class="cat-filter" data-filter="mujer">MUJER</button>
+      </div>
+    </div>
+
+    <!-- GRID — 12 productos -->
+    <div class="catalog-grid" id="catalogGrid">
+
+      <!-- 1 -->
+      <article class="p-card" data-id="5" data-category="camisetas">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&fit=crop" alt="Camiseta básica negra" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+          <span class="p-tag p-tag--new">NEW</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">CAMISETA · HOMBRE</span><div class="p-colors"><button class="p-color active" style="--c:#000" aria-label="Negro"></button><button class="p-color" style="--c:#fff;border:1px solid #333" aria-label="Blanco"></button></div></div>
+          <h3 class="p-name">Classic Black Tee</h3>
+          <div class="p-price">$79.000</div>
+          <div class="p-sizes"><span class="p-size">S</span><span class="p-size active">M</span><span class="p-size">L</span><span class="p-size">XL</span></div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="p-card" data-id="6" data-category="camisetas">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=600&q=80&fit=crop" alt="Camiseta oversized" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">CAMISETA OVERSIZED</span><div class="p-colors"><button class="p-color active" style="--c:#e8e0d5" aria-label="Crema"></button><button class="p-color" style="--c:#2d2d2d" aria-label="Gris oscuro"></button></div></div>
+          <h3 class="p-name">Oversized Drop</h3>
+          <div class="p-price">$95.000</div>
+          <div class="p-sizes"><span class="p-size">M</span><span class="p-size active">L</span><span class="p-size">XL</span><span class="p-size">XXL</span></div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="p-card" data-id="7" data-category="camisetas">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80&fit=crop" alt="Camiseta estampada" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+          <span class="p-tag p-tag--hot">HOT</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">CAMISETA GRÁFICA</span><div class="p-colors"><button class="p-color active" style="--c:#111" aria-label="Negro"></button><button class="p-color" style="--c:#1c1c3a" aria-label="Azul oscuro"></button></div></div>
+          <h3 class="p-name">Graphic Series Vol.3</h3>
+          <div class="p-price">$105.000</div>
+          <div class="p-sizes"><span class="p-size">S</span><span class="p-size">M</span><span class="p-size active">L</span><span class="p-size">XL</span></div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="p-card" data-id="8" data-category="chaquetas">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80&fit=crop" alt="Chaqueta varsity" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+          <span class="p-tag p-tag--new">NEW</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">CHAQUETA VARSITY</span><div class="p-colors"><button class="p-color active" style="--c:#111" aria-label="Negro"></button><button class="p-color" style="--c:#1a1a3a" aria-label="Navy"></button></div></div>
+          <h3 class="p-name">Varsity Edition</h3>
+          <div class="p-price">$220.000</div>
+          <div class="p-sizes"><span class="p-size">S</span><span class="p-size active">M</span><span class="p-size">L</span><span class="p-size">XL</span></div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="p-card" data-id="9" data-category="chaquetas">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?w=600&q=80&fit=crop" alt="Cortaviento negro" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">CORTAVIENTO</span><div class="p-colors"><button class="p-color active" style="--c:#0a0a0a" aria-label="Negro"></button><button class="p-color" style="--c:#0a1a0a" aria-label="Verde militar"></button></div></div>
+          <h3 class="p-name">Windbreaker Pro</h3>
+          <div class="p-price">$175.000</div>
+          <div class="p-sizes"><span class="p-size">M</span><span class="p-size active">L</span><span class="p-size">XL</span></div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="p-card" data-id="10" data-category="pantalones">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80&fit=crop" alt="Jogger negro" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+          <span class="p-tag p-tag--hot">HOT</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">JOGGER · HOMBRE</span><div class="p-colors"><button class="p-color active" style="--c:#111" aria-label="Negro"></button><button class="p-color" style="--c:#2d2d2d" aria-label="Gris"></button></div></div>
+          <h3 class="p-name">Jogger Premium</h3>
+          <div class="p-price">$119.000</div>
+          <div class="p-sizes"><span class="p-size">S</span><span class="p-size">M</span><span class="p-size active">L</span><span class="p-size">XL</span></div>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="p-card" data-id="11" data-category="pantalones">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1555689502-c4b22d76c56f?w=600&q=80&fit=crop" alt="Pantalón slim" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">PANTALÓN SLIM</span><div class="p-colors"><button class="p-color active" style="--c:#111" aria-label="Negro"></button><button class="p-color" style="--c:#2a1a08" aria-label="Café oscuro"></button></div></div>
+          <h3 class="p-name">Slim Fit Essential</h3>
+          <div class="p-price">$135.000</div>
+          <div class="p-sizes"><span class="p-size">28</span><span class="p-size active">30</span><span class="p-size">32</span><span class="p-size">34</span></div>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="p-card" data-id="12" data-category="tenis">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80&fit=crop" alt="Tenis deportivos" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+          <span class="p-tag p-tag--new">NEW</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">TENIS RUNNING</span><div class="p-colors"><button class="p-color active" style="--c:#111" aria-label="Negro"></button><button class="p-color" style="--c:#f0f0f0;border:1px solid #333" aria-label="Blanco"></button></div></div>
+          <h3 class="p-name">Runner X Pro</h3>
+          <div class="p-price">$265.000</div>
+          <div class="p-sizes"><span class="p-size">38</span><span class="p-size">39</span><span class="p-size active">40</span><span class="p-size">41</span><span class="p-size">42</span></div>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="p-card" data-id="13" data-category="tenis">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&q=80&fit=crop" alt="Tenis lifestyle" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+          <span class="p-tag p-tag--hot">HOT</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">TENIS LIFESTYLE</span><div class="p-colors"><button class="p-color active" style="--c:#e8e0d8;border:1px solid #555" aria-label="Crema"></button><button class="p-color" style="--c:#111" aria-label="Negro"></button></div></div>
+          <h3 class="p-name">Lifestyle Court</h3>
+          <div class="p-price">$229.000</div>
+          <div class="p-sizes"><span class="p-size">39</span><span class="p-size active">40</span><span class="p-size">41</span><span class="p-size">42</span></div>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="p-card" data-id="14" data-category="conjuntos">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80&fit=crop" alt="Conjunto mujer" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+          <span class="p-tag p-tag--new">NEW</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">CONJUNTO · UNISEX</span><div class="p-colors"><button class="p-color active" style="--c:#111" aria-label="Negro"></button><button class="p-color" style="--c:#1a1a3a" aria-label="Navy"></button></div></div>
+          <h3 class="p-name">Set Urbano AM</h3>
+          <div class="p-price">$198.000</div>
+          <div class="p-sizes"><span class="p-size">S</span><span class="p-size active">M</span><span class="p-size">L</span><span class="p-size">XL</span></div>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="p-card" data-id="15" data-category="mujer">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80&fit=crop" alt="Ropa mujer" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">CAMISETA · MUJER</span><div class="p-colors"><button class="p-color active" style="--c:#f8f0e8;border:1px solid #555" aria-label="Nude"></button><button class="p-color" style="--c:#111" aria-label="Negro"></button><button class="p-color" style="--c:#2d1a1a" aria-label="Vino"></button></div></div>
+          <h3 class="p-name">Fem Essentials</h3>
+          <div class="p-price">$85.000</div>
+          <div class="p-sizes"><span class="p-size">XS</span><span class="p-size active">S</span><span class="p-size">M</span><span class="p-size">L</span></div>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="p-card" data-id="16" data-category="mujer">
+        <div class="p-card-media">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80&fit=crop" alt="Conjunto mujer fem power" loading="lazy"/>
+          <div class="p-card-overlay"><button class="p-card-add" data-action="add-to-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>AGREGAR</span></button></div>
+          <span class="p-tag p-tag--hot">HOT</span>
+        </div>
+        <div class="p-card-info">
+          <div class="p-card-top"><span class="p-category">CONJUNTO · MUJER</span><div class="p-colors"><button class="p-color active" style="--c:#111" aria-label="Negro"></button><button class="p-color" style="--c:#2d1a1a" aria-label="Vino"></button></div></div>
+          <h3 class="p-name">Fem Power Set</h3>
+          <div class="p-price">$185.000</div>
+          <div class="p-sizes"><span class="p-size">XS</span><span class="p-size active">S</span><span class="p-size">M</span><span class="p-size">L</span></div>
+        </div>
+      </article>
+
+    </div><!-- /catalog-grid -->
+
+    <!-- CTA mayor -->
+    <div class="catalog-footer">
+      <p class="catalog-footer-note">¿Buscás algo específico o comprás al mayor?</p>
+      <a href="https://wa.link/yx9v35" target="_blank" class="btn-cta-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        CONSULTAR POR WHATSAPP
+      </a>
+    </div>
+  </section>
+
+  <!-- MARQUEE 2 -->
+  <div class="marquee-wrap marquee-wrap--dark">
+    <div class="marquee-track marquee-track--reverse"><div class="marquee-inner">
+      <span>ESTILO</span><span class="mx">✦</span><span>IDENTIDAD</span><span class="mx">✦</span>
+      <span>EXCLUSIVIDAD</span><span class="mx">✦</span><span>CALIDAD DIRECTA</span><span class="mx">✦</span>
+      <span>AM EXCLUSIVELY</span><span class="mx">✦</span><span>PEREIRA</span><span class="mx">✦</span>
+      <span>COLOMBIA</span><span class="mx">✦</span>
+      <span>ESTILO</span><span class="mx">✦</span><span>IDENTIDAD</span><span class="mx">✦</span>
+      <span>EXCLUSIVIDAD</span><span class="mx">✦</span><span>CALIDAD DIRECTA</span><span class="mx">✦</span>
+      <span>AM EXCLUSIVELY</span><span class="mx">✦</span><span>PEREIRA</span><span class="mx">✦</span>
+      <span>COLOMBIA</span><span class="mx">✦</span>
+    </div></div>
+  </div>
+
+  <!-- NOSOTROS -->
+  <section class="brand-story" id="nosotros">
+    <div class="brand-story-inner">
+      <div class="brand-story-left reveal">
+        <div class="bs-logo-wrap">
+          <img src="logo.jpg" alt="AM" class="bs-logo" />
+          <div class="bs-logo-rings"><div class="ring ring-1"></div><div class="ring ring-2"></div><div class="ring ring-3"></div></div>
+        </div>
+        <div class="bs-stats">
+          <div class="bs-stat"><span class="bs-stat-num" data-target="1800">0</span><span class="bs-stat-unit">+</span><span class="bs-stat-label">SEGUIDORES</span></div>
+          <div class="bs-stat"><span class="bs-stat-num" data-target="81">0</span><span class="bs-stat-unit">+</span><span class="bs-stat-label">DROPS</span></div>
+          <div class="bs-stat"><span class="bs-stat-num" data-target="32">0</span><span class="bs-stat-unit"></span><span class="bs-stat-label">DEPTOS.</span></div>
+        </div>
+      </div>
+      <div class="brand-story-right reveal" style="--delay:.15s">
+        <div class="bs-label"><div class="bs-label-line"></div><span>QUIÉNES SOMOS</span></div>
+        <h2 class="bs-title">No vendemos<br>ropa.<br><em>Vendemos<br>identidad.</em></h2>
+        <p class="bs-body">Somos AM Exclusively Store, importadores directos en Pereira. Sin intermediarios, con prendas seleccionadas para hombres y mujeres que saben lo que quieren.</p>
+        <ul class="bs-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Importadores directos · sin intermediarios</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Contra entrega a todo Colombia 🇨🇴</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Venta al mayor y al detal</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>C.C. Gran Tesoro Local 7, Pereira</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- UBICACIÓN + MAPA -->
+  <section class="map-section" id="contacto">
+    <div class="map-inner">
+      <!-- Info columna -->
+      <div class="map-info reveal">
+        <div class="bs-label" style="margin-bottom:1.5rem"><div class="bs-label-line"></div><span>ENCUÉNTRANOS</span></div>
+        <h2 class="map-title">Visítanos<br>en <em>Pereira</em></h2>
+
+        <div class="map-details">
+          <div class="map-detail-item">
+            <div class="map-detail-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <span class="map-detail-label">DIRECCIÓN</span>
+              <p>Calle 17 #9-62<br>C.C. El Gran Tesoro, Local 7<br>Pereira, Risaralda</p>
+            </div>
+          </div>
+          <div class="map-detail-item">
+            <div class="map-detail-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <span class="map-detail-label">HORARIO</span>
+              <p>Lunes – Sábado<br>9:00 am – 8:00 pm</p>
+            </div>
+          </div>
+          <div class="map-detail-item">
+            <div class="map-detail-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <span class="map-detail-label">WHATSAPP</span>
+              <a href="https://wa.link/yx9v35" target="_blank" class="map-link">wa.link/yx9v35</a>
+            </div>
+          </div>
+          <div class="map-detail-item">
+            <div class="map-detail-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <span class="map-detail-label">INSTAGRAM</span>
+              <a href="https://instagram.com/am_exclusivelystoree" target="_blank" class="map-link">@am_exclusivelystoree</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://wa.link/yx9v35" target="_blank" class="btn-cta-wa" style="margin-top:2rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          ESCRIBIR AHORA
+        </a>
+      </div>
+
+      <!-- Mapa columna -->
+      <div class="map-embed reveal" style="--delay:.15s">
+        <div class="map-frame-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=4.8127,-75.6961&z=17&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;filter:grayscale(100%) invert(90%) contrast(90%)"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="AM Exclusively Store — Pereira, Risaralda">
+          </iframe>
+          <div class="map-frame-pin">
+            <div class="map-pin-dot"></div>
+            <span>AM Exclusively Store</span>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=Calle+17+%239-62+C.C.+El+Gran+Tesoro+Pereira+Risaralda+Colombia" target="_blank" class="map-open-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          ABRIR EN GOOGLE MAPS
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo"><img src="logo.jpg" alt="AM" /></div>
+      <nav class="footer-nav">
+        <a href="#new-in">Nueva Colección</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a href="https://wa.link/yx9v35" target="_blank">WhatsApp</a>
+      </nav>
+      <div class="footer-addr">
+        <p>C.C. Gran Tesoro Local 7</p>
+        <p>Calle 17 #9-62, Pereira</p>
+        <p>Risaralda, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AM Exclusively Store</span>
+      <span class="footer-sep">·</span>
+      <span>Pereira, Colombia</span>
+      <span class="footer-sep">·</span>
+      <span>Hecho con 🖤</span>
+    </div>
+  </footer>
+
+  <!-- WA FAB -->
+  <a href="https://wa.link/yx9v35" target="_blank" class="wa-fab" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <div class="wa-pulse"></div>
+  </a>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Carrito">
+    <div class="cart-header">
+      <div class="cart-header-left">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span>CARRITO</span>
+        <span class="cart-header-count" id="cartHeaderCount">0 items</span>
+      </div>
+      <button class="cart-close" id="cartClose" aria-label="Cerrar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+      <p>Tu carrito está vacío</p>
+      <span>Agrega productos para continuar</span>
+      <button class="cart-empty-cta" id="cartEmptyCta">VER CATÁLOGO</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-summary">
+        <div class="cart-summary-row"><span>Subtotal</span><span id="cartSubtotal">$0</span></div>
+        <div class="cart-summary-row cart-summary-row--note"><span>Envío</span><span class="cart-free">Contra entrega</span></div>
+        <div class="cart-summary-row cart-summary-row--total"><span>Total</span><span id="cartTotal">$0</span></div>
+      </div>
+      <div class="cart-note-wrap">
+        <label for="cartNote">Nota (opcional)</label>
+        <textarea id="cartNote" placeholder="Talla, color, instrucciones especiales…" rows="2"></textarea>
+      </div>
+      <button class="cart-wa-btn" id="cartWaBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        PEDIR POR WHATSAPP
+      </button>
+      <p class="cart-wa-note">Te contactaremos para confirmar tu pedido y datos de envío.</p>
+      <button class="cart-clear-btn" id="cartClearBtn">Vaciar carrito</button>
+    </div>
+  </aside>
+
+  <div class="cart-toast" id="cartToast"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
